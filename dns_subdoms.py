@@ -1,16 +1,16 @@
 import dns.resolver
 
-# 서브도메인 사전
+# subdomain wordlist
 with open("subdomain.txt") as file:
     subdomains = file.read().splitlines()
 
-# DNS 요청을 보낼 도메인 (예: example.com)
-target_domain = "testfire.net"
+# DNS request
+target_domain = "example.com"
 
 for subdomain in subdomains:
     full_domain = f"{subdomain}.{target_domain}"
     try:
-        answers = dns.resolver.query(full_domain, "A")  # "A" 레코드 조회
+        answers = dns.resolver.query(full_domain, "A")  # "A" record
         for answer in answers:
             print(f"Valid subdomain: {full_domain} => {answer}")
     except dns.resolver.NXDOMAIN:
